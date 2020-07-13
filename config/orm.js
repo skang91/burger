@@ -1,6 +1,8 @@
 var connection = require("./connection.js");
 
+// Methods for MySQL commands
 var orm = {
+    // selectAll
     selectAll: function (tableName) {
         var query = "SELECT * FROM ??";
         return new Promise((resolve, reject) => {
@@ -13,6 +15,7 @@ var orm = {
             });
         });
     },
+    // insertone
     insertOne: function (tableName, obj) {
         var query = `INSERT INTO BURGERS SET ?`;
         return new Promise((resolve, reject) => {
@@ -25,6 +28,7 @@ var orm = {
             });
         });
     },
+    //updateone
     updateOne: function (tableName, updCol, updVal, idCol, objId) {
         var query = "UPDATE ?? SET ?? = ? WHERE ?? = ?";
         return new Promise((resolve, reject) => {
@@ -39,4 +43,5 @@ var orm = {
     }
 };
 
+// Export
 module.exports = orm;

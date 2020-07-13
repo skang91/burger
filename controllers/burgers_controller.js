@@ -1,9 +1,10 @@
 var routes = require("express").Router();
 var Burger = require("../models/burger");
 
+// Create routes
 routes.get("/", function (req, res) {
     Burger.selectBurgers().then(result => {
-        // Populate results based on devoured status
+        // status
         let devoured = result.filter(b => b.devoured === 1);
         let undevoured = result.filter(b => b.devoured === 0);
         res.render("index", {
@@ -23,6 +24,7 @@ routes.get("/api/burger", (req, res) => {
     });
 });
 
+// Create a new burger
 routes.post("/api/burger", (req, res) => {
     if (!req.body.name) {
         res.status(500).send({error: "Burger name is required"});
@@ -35,6 +37,7 @@ routes.post("/api/burger", (req, res) => {
     });
 });
 
+// Devour a burger
 routes.put("/api/burger/:id", (req, res) => {
     Burger.updateDevoured(req.params.id).then(result => {
         res.json(result);
@@ -43,5 +46,5 @@ routes.put("/api/burger/:id", (req, res) => {
     });
 });
 
-
+// Export
 module.exports = routes;

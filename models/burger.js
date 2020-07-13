@@ -5,6 +5,7 @@ function Burger(name) {
     this.devoured = false;
 }
 
+// call ORM
 Burger.selectBurgers = function () {
     return new Promise((resolve, reject) => {
         orm.selectAll("BURGERS").then(results => {
@@ -21,7 +22,6 @@ Burger.create = function (burger) {
             burger_name: burger.name,
             devoured: burger.devoured
         }).then(results => {
-            // Get db generated ID
             burger.id = results.insertId;
             resolve(burger.id);
         }).catch(() => {
@@ -40,5 +40,5 @@ Burger.updateDevoured = function (burgerId) {
     })
 };
 
-
+// Export
 module.exports = Burger;
