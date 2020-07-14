@@ -4,7 +4,11 @@ html {
 }
 
 body {
-    background-color: rgba(128, 128, 128, 0.548);
+    background-image: url("../img/background2.jpeg");
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
     margin-bottom: 45px;
     font-family: "Comic Sans MS", cursive, sans-serif;
 }
@@ -14,7 +18,7 @@ body {
 }
 
 .card-header {
-    background-color: rgb(214, 196, 28);
+    background-color: rgba(87, 86, 84, 0.425);
     color: rgb(255, 255, 255);
 }
 
@@ -25,7 +29,7 @@ footer {
     text-align: center;
     width: 100%;
     background-color: rgb(46, 43, 43);
-    border-top: 5px solid rgb(214, 196, 28);
+    border-top: 6px solid rgb(255, 255, 0);
 }
 
 footer small {
